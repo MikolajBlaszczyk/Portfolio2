@@ -1,0 +1,12 @@
+D:\vs projekty\portfolio\ArchSiteUI\Logic\bin\Debug\net5.0\Logic.deps.json
+D:\vs projekty\portfolio\ArchSiteUI\Logic\bin\Debug\net5.0\Logic.dll
+D:\vs projekty\portfolio\ArchSiteUI\Logic\bin\Debug\net5.0\Logic.pdb
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.csproj.AssemblyReference.cache
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.AssemblyInfoInputs.cache
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.AssemblyInfo.cs
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.csproj.CoreCompileInputs.cache
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.dll
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\ref\Logic.dll
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\Logic.pdb
+D:\vs projekty\portfolio\ArchSiteUI\Logic\obj\Debug\net5.0\refint\Logic.dll

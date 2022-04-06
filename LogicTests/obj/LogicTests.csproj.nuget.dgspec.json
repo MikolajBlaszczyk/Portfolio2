@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\vs projekty\\NAUKA\\ArchitectureUI\\LogicTests\\LogicTests.csproj": {}
+  },
+  "projects": {
+    "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\ArchitectureUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\ArchitectureUI.csproj",
+        "projectName": "ArchitectureUI",
+        "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\ArchitectureUI.csproj",
+        "packagesPath": "C:\\Users\\mikolaj\\.nuget\\packages\\",
+        "outputPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\visual studio pf\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mikolaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj": {
+                "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\vs projekty\\NAUKA\\ArchitectureUI\\LogicTests\\LogicTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\LogicTests\\LogicTests.csproj",
+        "projectName": "LogicTests",
+        "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\LogicTests\\LogicTests.csproj",
+        "packagesPath": "C:\\Users\\mikolaj\\.nuget\\packages\\",
+        "outputPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\LogicTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\visual studio pf\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mikolaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": ".NETCoreApp,Version=v5.0",
+            "projectReferences": {
+              "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\ArchitectureUI.csproj": {
+                "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\ArchitectureUI\\ArchitectureUI.csproj"
+              },
+              "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj": {
+                "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": ".NETCoreApp,Version=v5.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj",
+        "projectName": "Logic",
+        "projectPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\mikolaj\\.nuget\\packages\\",
+        "outputPath": "D:\\vs projekty\\NAUKA\\ArchitectureUI\\Logic\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\visual studio pf\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mikolaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
