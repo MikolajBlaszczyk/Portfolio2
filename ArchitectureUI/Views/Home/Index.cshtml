@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container ">
+    <div class="border mt-5 mb-5 p-3">
+        <p class="p-3 StartUpPageHeader ">
+            Strona poświęcona jest zagadnieniom związanym z obliczeniami występującymi w pracy architekta. <br >
+            Na tej stronie można obliczyć:
+        </p>
+        <ul class="mt-1">
+            <li>
+                Ilość schodów na podstawie wybranego budynku i wysokości kondygnacji
+            </li>
+            <li>
+                Pojawienie się spocznika
+            </li>
+            <li>
+                Miejsce pojawienia się spocznika
+            </li>
+            <li>
+                Wysokość schodów 
+            </li>
+        </ul>
+        
+    </div>
+    <div class="border border-dark mb-5">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="@Url.Content("~/images/no1.jpg")" height="600" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="@Url.Content("~/images/no2.jpg")" height="600" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="@Url.Content("~/images/no3.jpg")" height="600" class="d-block w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

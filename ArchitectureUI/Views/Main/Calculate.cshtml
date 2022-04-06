@@ -1,0 +1,215 @@
+﻿@using ArchitectureUI.Models
+@model CalculateModel 
+@{
+
+}
+
+<!--Modals-->
+<div class="modal" tabindex="-1" id="firstModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" aria-label="close" />
+            </div>
+            <div class="modal-body">
+                <p>Budynki mieszkalne jednorodzinne i w zabudowie zagrodowej oraz mieszkania dwupoziomowe </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="secondModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" aria-label="close" />
+            </div>
+            <div class="modal-body">
+                <p>Budynki mieszkalne wielorodzinne, budynki zamieszkania zbiorowego oraz budynki użyteczności publicznej, z wyłączeniem budynków zakładów opieki zdrowotnej 4  , a także budynki produkcyjne, magazynowo-składowe oraz usługowe, w których zatrudnia się ponad 10 osób</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="thirdModal" tabindex="-1" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" aria-label="close" />
+            </div>
+            <div class="modal-body">
+                <p> Przedszkola i żłobki</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fourthModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" ari-label="close" />
+            </div>
+            <div class="modal-body">
+                <p>Budynki opieki zdrowotnej</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fifthModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" aria-label="close" />
+            </div>
+            <div class="modal-body">
+                <p>Garaże wbudowane i wolno stojące (wielostanowiskowe) oraz budynki usługowe, w których zatrudnia się do 10 osób</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sixthModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opis</h4>
+                <input type="button" value="X" class="btn" data-dismiss="modal" aria-label="close" />
+            </div>
+            <div class="modal-body">
+                <p>We wszystkich budynkach niezależnie od ich przeznaczenia schody do kondygnacji podziemnej, pomieszczeń technicznych i poddaszy nieużytkowych</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--visible content-->
+<div class="container-fluid  mt-5 p-5 shadow border " >
+        <div class="row">
+            <form class="p-2 col-12" method="post" asp-action="Calculate" asp-controller="Main">
+                <!--floorheight text-->
+                <div class=" mb-5">
+                    <div class="row ">
+                    <div class="input-group col-12">
+                        <div class="input-group-prepend  m-0 w-25 ">
+                            <span class="input-group-text w-100">Podaj wysokość kondygnacji</span>
+                        </div>
+                        <div class="w-75 ">
+                             <input type="text" class="form-control w-100 text-left rounded-0 " autocomplete="off" name="FloorHeightText" />
+                        </div>
+                    </div>
+                        
+                       
+                    </div>
+                </div>
+                <!--Table with checkboxes that indicates the type of a building-->
+                <div class="mb-3 ">
+                    <table class="table">
+                        <thead class=" tableHeadDark border-0">
+                            <tr>
+                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#firstModal">
+                                    <span class="fs-3">Budynki mieszkalne jednorodzinne</span>
+                                </th>
+                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#secondModal">
+                                    <span class="fs-3">Budynki mieszkalne wielorodzinne</span>
+                                </th>
+                                <th class="text-center border-0 align-middle tableHeadDarkContent" data-toggle="modal" data-target="#thirdModal">
+                                    <span class="fs-3">Przedszkola</span>
+                                </th>
+                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fourthModal">
+                                    <span class="fs-3">Budynki opieki zdrowotnej</span>
+                                </th>
+                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fifthModal">
+                                    <span class="fs-3">Garaże wbudowane i wolno stojące</span>
+                                </th> 
+                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#sixthModal">
+                                    <span class="fs-3">schody do kondygnacji podziemnej</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.DetachedHouse, new { @Class = "btn" })
+                                </td>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.MultiFamilyHouse, new { @Class = "btn" })
+                                </td>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.Kindergarten, new { @Class = "btn" })
+                                </td>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.HealthCareBuilding, new { @Class = "btn" })
+                                </td>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.Garage, new { @Class = "btn" })
+                                </td>
+                                <td class="text-center border-0">
+                                    @Html.CheckBoxFor(Model => Model.Underground, new { @Class = "btn" })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--submit button-->
+                <div class="row mt-5">
+                    <button type="submit" class="offset-5 col-2 btn buttonDark  p-3">Potwierdź</button>
+                </div>
+            </form>
+        </div>
+        <!--results-->
+        <div class="row ">
+            @if (Model.Success == true)
+            {
+                <div class="offset-3 col-6 textCalculationPage">
+                    <div class="border-top justify-content-between">
+                        <div class="row">
+                            <span class=" col-8">Ilość schodów</span>
+                            <span class=" col-4 text-center"> @Model.AmoutOfStairs </span>
+                        </div>
+                    </div>
+                    @if (Model.Landing == true)
+                    {
+                        <div class="border-top justify-content-between">
+                            <div class="row">
+                                <span class="col-8">Spocznik międzypiętrowy</span>
+                                    <span class="col-4 text-center">
+                                        @Model.LandingStairs
+                                    </span>
+                            </div>
+                        </div>
+                    }
+                    <div class="border-top align-content-between">
+                        <div class="row">
+                            <span class="col-8">Wysokość stopnia</span>
+                            <input type="text" class=" col-4 text-center border-0" id="height" value="@Model.MaxHeight" readonly/>
+                        </div>
+                    </div>
+                    <div class="border-top border-bottom justify-content-between">
+                        <div class="row">
+                            <span class="col-8">Szerokość stopnia</span>
+                            <span class="col-4 text-center">@Model.MaxWidth</span>
+                        </div>
+                    </div>
+                    <div class="border-top border-bottom justify-content-between">
+                        <div class="row">
+                            <span class="col-8">Głębokość stopnia</span>
+                            <input class="col-4 text-center border-0" id="depth" value="@Model.Depth" >
+                        </div>
+                    </div>
+                </div>
+                
+            }
+            
+            @if (Model.Success == false)
+            {
+                <div class="offset-3 col-6 text-center ">
+                        <span class="textCalculationPage">@ViewBag.Note</span>
+                </div>
+            }
+    </div>
+
+</div>
+

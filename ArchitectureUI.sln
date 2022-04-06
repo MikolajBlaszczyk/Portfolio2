@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitectureUI", "ArchitectureUI\ArchitectureUI.csproj", "{8E11EA4D-FB96-490F-BD4C-0CA8BF7CCAA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{6AE45615-304E-40E6-903D-8A9DC8DA2900}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTests", "LogicTests\LogicTests.csproj", "{B34BCFF0-A695-4E6F-89F1-5806B7A79D9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E11EA4D-FB96-490F-BD4C-0CA8BF7CCAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E11EA4D-FB96-490F-BD4C-0CA8BF7CCAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E11EA4D-FB96-490F-BD4C-0CA8BF7CCAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E11EA4D-FB96-490F-BD4C-0CA8BF7CCAA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE45615-304E-40E6-903D-8A9DC8DA2900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE45615-304E-40E6-903D-8A9DC8DA2900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE45615-304E-40E6-903D-8A9DC8DA2900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE45615-304E-40E6-903D-8A9DC8DA2900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34BCFF0-A695-4E6F-89F1-5806B7A79D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34BCFF0-A695-4E6F-89F1-5806B7A79D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34BCFF0-A695-4E6F-89F1-5806B7A79D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34BCFF0-A695-4E6F-89F1-5806B7A79D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBB621F7-A67A-4542-9F77-0E58A6F176D8}
+	EndGlobalSection
+EndGlobal
