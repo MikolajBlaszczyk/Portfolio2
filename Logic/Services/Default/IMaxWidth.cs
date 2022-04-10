@@ -5,6 +5,6 @@ namespace Logic.Services
 {
     public interface IMaxWidth
     {
-        Task<double> CheckMaxHeight(CalculationModel input);
+        Task<double> CheckMaxWidth(CalculationModel input);
     }
 }

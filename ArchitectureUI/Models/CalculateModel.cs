@@ -15,8 +15,8 @@ namespace ArchitectureUI.Models
         //input
         public int AmoutOfStairs { get; set; }
         public bool Landing { get; set; }
-        public double MaxHeight { get; set; }
-        public double MaxWidth { get; set; }
+        public double Height { get; set; }
+        public double Width { get; set; }
         public double Depth { get; set; }
         public string LandingStairs { get; set; }
         //success 

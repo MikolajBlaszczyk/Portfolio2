@@ -1,5 +1,6 @@
 ﻿using Logic.Model;
 using Logic.Services;
+using Logic.Services.Change;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace Logic
         public IMultiComposition MultiComposition { get; set; }
         public IMaxWidth WidthProcessor { get; set; }
         public IDepthCalculations DepthCalculations { get; set; }
+        public IChangeParams ChangeParams { get; set; }
 
         public Calculation(ISingleComposition singleComposition, IStairs stairsProcessor,
-            IMaxHeight heightProcessor, IMultiComposition multiComposition, IMaxWidth widthProcessor, IDepthCalculations depthCalculations)
+            IMaxHeight heightProcessor, IMultiComposition multiComposition, IMaxWidth widthProcessor,
+            IDepthCalculations depthCalculations, IChangeParams changeParams)
         {
             SingleComposition = singleComposition;
             StairsProcessor = stairsProcessor;
@@ -27,17 +30,28 @@ namespace Logic
             MultiComposition = multiComposition;
             WidthProcessor = widthProcessor;
             DepthCalculations = depthCalculations;
+            ChangeParams = changeParams;
         }
 
-        public async Task MainCalculation(CalculationModel model)
+        public async Task MainCalculation(CalculationModel model, bool change, double maxHeight, double minWidth, double depth)
         {
             //single composition
             bool singleComposition = await SingleComposition.CheckSingleComposition(model);
 
             model.AmoutOfStairs = await StairsProcessor.AmountOfStairs(model);
-            model.MaxHeight = await HeightProcessor.CheckMaxHeight(model);
-            model.Depth = await DepthCalculations.CalculateDepth(model);
-            model.MaxWidth = await WidthProcessor.CheckMaxHeight(model);
+            if (change == false)
+            {
+                model.MaxHeight = await HeightProcessor.CheckMaxHeight(model);
+                model.Depth = await DepthCalculations.CalculateDepth(model);
+                model.MinWidth = await WidthProcessor.CheckMaxWidth(model);
+            }
+            else if (change == true)
+            {
+                model.MaxHeight = maxHeight;
+                model.MinWidth = minWidth;
+                model.Depth = await ChangeParams.MatchParams(maxHeight, depth);
+            }
+
             if (singleComposition == true)
             {
                 model.Landing = false;
@@ -48,5 +62,7 @@ namespace Logic
                 model.LandingStairs = await MultiComposition.CalculateLandings(model);
             }
         }
+
+
     }
 }

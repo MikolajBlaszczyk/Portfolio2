@@ -1,6 +1,7 @@
 using ArchitectureUI.Validation;
 using Logic;
 using Logic.Services;
+using Logic.Services.Change;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,8 @@ namespace ArchitectureUI
             services.AddScoped<IMaxWidth, MaxWidth>();
             services.AddScoped<IDepthCalculations, DepthCalculations>();
             services.AddScoped<IValidateModel, ValidateModel>();
+            services.AddScoped<IChangeParams, ChangeParams>();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

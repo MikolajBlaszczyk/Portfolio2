@@ -1,7 +1,12 @@
 ﻿@using ArchitectureUI.Models
 @model CalculateModel 
 @{
-
+    Model.DetachedHouse = false;
+    Model.MultiFamilyHouse = false;
+    Model.Kindergarten = false;
+    Model.HealthCareBuilding = false;
+    Model.Garage = false;
+    Model.Underground = false;
 }
 
 <!--Modals-->
@@ -86,130 +91,171 @@
 
 
 <!--visible content-->
-<div class="container-fluid  mt-5 p-5 shadow border " >
-        <div class="row">
-            <form class="p-2 col-12" method="post" asp-action="Calculate" asp-controller="Main">
-                <!--floorheight text-->
-                <div class=" mb-5">
-                    <div class="row ">
-                    <div class="input-group col-12">
-                        <div class="input-group-prepend  m-0 w-25 ">
+<div class="container-fluid  mt-5 p-3 shadow border " >
+    <div class="row p-xl-3 p-lg-3 p-md-3 p-sm-0">
+        
+            @using(Html.BeginForm("Calculate","Main",FormMethod.Post,htmlAttributes: new { @Class="col-12 p-0"}))
+            {
+            <div class=" mb-5">
+                <div class="row gx-0 ">
+                    <div class="col-12 d-flex w-100">
+                        <div class="input-group-prepend m-0 p-0 w-25">
                             <span class="input-group-text w-100">Podaj wysokość kondygnacji</span>
                         </div>
-                        <div class="w-75 ">
-                             <input type="text" class="form-control w-100 text-left rounded-0 " autocomplete="off" name="FloorHeightText" />
+                        <div class="p-0 w-75">
+                            <input type="text" class="form-control text-left rounded-0 " autocomplete="off" name="FloorHeightText" />
                         </div>
                     </div>
-                        
-                       
+                </div>
+            </div>
+            <!--Table with checkboxes that indicates the type of a building-->
+            <div class="mb-3  d-flex ">
+                <table class="table m-0 " >
+                    <thead class=" tableHeadDark border-0 tableSize">
+                        <tr>
+                            <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#firstModal">
+                                Budynki mieszkalne jednorodzinne
+                            </th>
+                            <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#secondModal">
+                                Budynki mieszkalne wielorodzinne
+                            </th>
+                            <th class="text-center border-0 align-middle tableHeadDarkContent" data-toggle="modal" data-target="#thirdModal">
+                                Przedszkola
+                            </th>
+                            <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fourthModal">
+                               Budynki opieki zdrowotnej
+                            </th>
+                            <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fifthModal">
+                                Garaże wbudowane i wolno stojące
+                            </th> 
+                            <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#sixthModal">
+                                schody do kondygnacji podziemnej
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","DetachedHouse")
+                            </td>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","MultiFamilyHouse")
+                            </td>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","Kindergarten")
+                            </td>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","HealthCareBuilding")
+                            </td>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","Garage")
+                            </td>
+                            <td class="text-center border-0">
+                                @Html.RadioButton("type","Underground")
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            <!--submit button-->
+            <div class="row mt-5">
+                <button type="submit" class="offset-5 col-2 btn buttonDark  p-3" >Potwierdź</button>
+            </div>
+            }
+        
+    </div>
+    <!--results-->
+    <div id="result" class="row mt-5">
+        @if (Model.Success == true)
+        {
+            <div class="offset-3 col-6 textCalculationPage">
+                <div class="border-top justify-content-between">
+                    <div class="row">
+                        <span class=" col-8">Ilość schodów</span>
+                        <span class=" col-4 text-center"> @Model.AmoutOfStairs </span>
                     </div>
                 </div>
-                <!--Table with checkboxes that indicates the type of a building-->
-                <div class="mb-3 ">
-                    <table class="table">
-                        <thead class=" tableHeadDark border-0">
-                            <tr>
-                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#firstModal">
-                                    <span class="fs-3">Budynki mieszkalne jednorodzinne</span>
-                                </th>
-                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#secondModal">
-                                    <span class="fs-3">Budynki mieszkalne wielorodzinne</span>
-                                </th>
-                                <th class="text-center border-0 align-middle tableHeadDarkContent" data-toggle="modal" data-target="#thirdModal">
-                                    <span class="fs-3">Przedszkola</span>
-                                </th>
-                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fourthModal">
-                                    <span class="fs-3">Budynki opieki zdrowotnej</span>
-                                </th>
-                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#fifthModal">
-                                    <span class="fs-3">Garaże wbudowane i wolno stojące</span>
-                                </th> 
-                                <th class="text-center border-0 tableHeadDarkContent" data-toggle="modal" data-target="#sixthModal">
-                                    <span class="fs-3">schody do kondygnacji podziemnej</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.DetachedHouse, new { @Class = "btn" })
-                                </td>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.MultiFamilyHouse, new { @Class = "btn" })
-                                </td>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.Kindergarten, new { @Class = "btn" })
-                                </td>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.HealthCareBuilding, new { @Class = "btn" })
-                                </td>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.Garage, new { @Class = "btn" })
-                                </td>
-                                <td class="text-center border-0">
-                                    @Html.CheckBoxFor(Model => Model.Underground, new { @Class = "btn" })
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!--submit button-->
-                <div class="row mt-5">
-                    <button type="submit" class="offset-5 col-2 btn buttonDark  p-3">Potwierdź</button>
-                </div>
-            </form>
-        </div>
-        <!--results-->
-        <div class="row ">
-            @if (Model.Success == true)
-            {
-                <div class="offset-3 col-6 textCalculationPage">
+                @if (Model.Landing == true)
+                {
                     <div class="border-top justify-content-between">
                         <div class="row">
-                            <span class=" col-8">Ilość schodów</span>
-                            <span class=" col-4 text-center"> @Model.AmoutOfStairs </span>
+                            <span class="col-8">Spocznik międzypiętrowy</span>
+                                <span class="col-4 text-center">
+                                    @Model.LandingStairs
+                                </span>
                         </div>
                     </div>
-                    @if (Model.Landing == true)
-                    {
-                        <div class="border-top justify-content-between">
-                            <div class="row">
-                                <span class="col-8">Spocznik międzypiętrowy</span>
-                                    <span class="col-4 text-center">
-                                        @Model.LandingStairs
-                                    </span>
-                            </div>
-                        </div>
-                    }
-                    <div class="border-top align-content-between">
-                        <div class="row">
-                            <span class="col-8">Wysokość stopnia</span>
-                            <input type="text" class=" col-4 text-center border-0" id="height" value="@Model.MaxHeight" readonly/>
-                        </div>
-                    </div>
-                    <div class="border-top border-bottom justify-content-between">
-                        <div class="row">
-                            <span class="col-8">Szerokość stopnia</span>
-                            <span class="col-4 text-center">@Model.MaxWidth</span>
-                        </div>
-                    </div>
-                    <div class="border-top border-bottom justify-content-between">
-                        <div class="row">
-                            <span class="col-8">Głębokość stopnia</span>
-                            <input class="col-4 text-center border-0" id="depth" value="@Model.Depth" >
-                        </div>
+                }
+                <div class="border-top align-content-between">
+                    <div class="row">
+                        <span class="col-8">Wysokość stopnia</span>
+                        <input type="text" class=" col-4 text-center border-0" id="height" value="@Model.Height" readonly/>
                     </div>
                 </div>
+                <div class="border-top border-bottom justify-content-between">
+                    <div class="row">
+                        <span class="col-8">Szerokość stopnia</span>
+                        <span class="col-4 text-center">@Model.Width</span>
+                    </div>
+                </div>
+                <div class="border-top border-bottom justify-content-between">
+                    <div class="row">
+                        <span class="col-8">Głębokość stopnia</span>
+                        <input class="col-4 text-center border-0" id="depth" value="@Model.Depth" >
+                    </div>
+                </div>
+            </div>
                 
-            }
+        }
             
-            @if (Model.Success == false)
-            {
-                <div class="offset-3 col-6 text-center ">
-                        <span class="textCalculationPage">@ViewBag.Note</span>
-                </div>
-            }
+        @if (Model.Success == false)
+        {
+            <div class="offset-3 col-6 text-center ">
+                <span class="textCalculationPage">@ViewBag.Note</span>
+            </div>
+        }
     </div>
 
+   
+    <div class="row mt-5">
+        <form class="offset-2 col-8 d-flex w-100 justify-content-center" method="post" >
+            @if(Model.Success==true)
+            {
+                <div class="d-flex flex-column w-100">
+                    <div class="d-flex flex-column mb-2">
+                        <div class="textCalculationPage ml-3">
+                             <span id="heightChange" >@("Wysokość: "+Model.Height)</span>
+                        </div>
+                        <div >
+                            <input id="rangeInputHeight" class="inputRangeStyling" type="range" min="0.02" max="@ViewData["height"]" name="height" value="@Model.Height"step="0.005"/>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mb-2">
+                        <div class="textCalculationPage ml-3">
+                            <span id="widthChange"  >@("Szerokość: "+Model.Width)</span>
+                        </div>
+                        <div class="">
+                            <input id="rangeInputWidth" class="inputRangeStyling" type="range" min="@ViewData["width"]" max="2" step="0.1" name="width" value="@Model.Width"/>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mb-2">
+                        <div class="textCalculationPage ml-3">
+                             <span id="depthChange"  >@("Głębokość: "+Model.Depth)</span>
+                        </div>
+                        <div>
+                            <input id="rangeInputDepth" class="inputRangeStyling" type="range" min="@ViewData["depth"]" max="0.5" step="0.005" name="depth" value="@Model.Depth"/>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <input type="submit" class=" btn textCalculationPage " value="change" formaction="AdjustCalculations"/>
+                    </div>
+                        @Html.Hidden("FloorHeightText")
+                </div>
+            }
+        </form>
+    </div>
+    
+
 </div>
+
 

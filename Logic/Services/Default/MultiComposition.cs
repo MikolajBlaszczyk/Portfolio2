@@ -11,7 +11,7 @@ namespace Logic
     {
         public async Task<List<int>> CalculateLandings(CalculationModel model)
         {
-            List<int> output = new();
+            List<int> output = new() { };
             if (model.AmoutOfStairs < 34)
             {
                 output.Add(model.AmoutOfStairs / 2);

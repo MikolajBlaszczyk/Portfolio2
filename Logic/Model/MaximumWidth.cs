@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Model
 {
-    public static class MaximumWidth
+    public static class MinimumWidth
     {
         public static readonly decimal DetachedHouse = 0.8M;
         public static readonly decimal MultiFamilyHouse = 1.2M;

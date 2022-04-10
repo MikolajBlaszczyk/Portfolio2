@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Logic.Model;
 using Logic.Services;
+using Logic.Services.Change;
 
 namespace Logic.Tests
 {
@@ -23,8 +24,8 @@ namespace Logic.Tests
             MultiComposition multiComp = new();
             MaxWidth widthPr = new();
             DepthCalculations depth = new();
-
-            Calculation processor = new(comp, stairs, heightPr, multiComp, widthPr , depth);
+            ChangeParams changeParams = new();
+            Calculation processor = new(comp, stairs, heightPr, multiComp, widthPr , depth, changeParams);
             Processor = processor;
         }
         //amount of stairs
@@ -41,7 +42,7 @@ namespace Logic.Tests
             model.Garage = false;
             model.Underground = false;
             model.FloorHeight = height;
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0 ,0, 0);
             Assert.Equal(model.AmoutOfStairs.ToString(), "16");
         }
         [Theory]
@@ -56,7 +57,7 @@ namespace Logic.Tests
             model.Garage = false;
             model.Underground = false;
             model.FloorHeight = height;
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.Equal(model.AmoutOfStairs.ToString(), result);
         }
         [Theory]
@@ -71,7 +72,7 @@ namespace Logic.Tests
             model.Garage = false;
             model.Underground = false;
             model.FloorHeight = height;
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.Equal(model.AmoutOfStairs.ToString(), result);
         }
         [Theory]
@@ -86,7 +87,7 @@ namespace Logic.Tests
             model.Garage = false;
             model.Underground = true;
             model.FloorHeight = height;
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.Equal(model.AmoutOfStairs.ToString(), result);
         }
 
@@ -103,7 +104,7 @@ namespace Logic.Tests
             model.Underground = false;
             model.FloorHeight = height;
 
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.False(model.Landing);
         }
         [Theory]
@@ -119,7 +120,7 @@ namespace Logic.Tests
             model.Underground = false;
             model.FloorHeight = height;
 
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.True(model.Landing);
         }
         [Theory]
@@ -135,7 +136,7 @@ namespace Logic.Tests
             model.Underground = false;
             model.FloorHeight = height;
 
-            await Processor.MainCalculation(model);
+            await Processor.MainCalculation(model, false, 0, 0, 0);
             Assert.Equal(model.LandingStairs.Count().ToString(), "1");
         }
         [Theory]
@@ -151,7 +152,7 @@ namespace Logic.Tests
             model2.Underground = false;
             model2.FloorHeight = height;
 
-            await Processor.MainCalculation(model2);
+            await Processor.MainCalculation(model2, false, 0, 0, 0);
             Assert.Equal(model2.LandingStairs.Count().ToString(), "2");
         }
         [Theory]
@@ -169,7 +170,7 @@ namespace Logic.Tests
             model2.Underground = false;
             model2.FloorHeight = height;
 
-            await Processor.MainCalculation(model2);
+            await Processor.MainCalculation(model2, false, 0, 0, 0);
             Assert.Equal(model2.LandingStairs[0].ToString(), (model2.AmoutOfStairs/2).ToString());
         }
     }

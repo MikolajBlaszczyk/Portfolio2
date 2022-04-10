@@ -20,7 +20,7 @@ namespace Logic.Model
         public int AmoutOfStairs { get; set; }
         public bool Landing { get; set; }
         public double MaxHeight { get; set; }
-        public double MaxWidth { get; set; }
+        public double MinWidth { get; set; }
         public double Depth { get; set; }
         public List<int> LandingStairs { get; set; }
     }
