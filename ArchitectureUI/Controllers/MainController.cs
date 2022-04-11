@@ -55,24 +55,25 @@ namespace ArchSite.Controllers
         [HttpPost]
         public async Task<IActionResult> Calculate(IFormCollection collection, string FloorHeightText, CalculateModel model)
         {
-            List<Task> tasks = new();
             if(collection["type"].Count !=0)
             {
                 string radioResult = collection["type"];
-                tasks.Add(RadioResult(radioResult, model));
-                tasks.Add(CacheChoice(radioResult));
+                await RadioResult(radioResult, model);
+                await CacheChoice(radioResult);
                 if (FloorHeightText is not null && double.TryParse(FloorHeightText, out _))
                 {
                     model.FloorHeight = Convert.ToDouble(FloorHeightText.Replace('.', ','));
                     try
                     {
-                        tasks.Add(CalculateModel(model, false));
+                        await CalculateModel(model, false);
+                        _logger.LogInformation("Calculation success");
                     }
                     catch (Exception)
                     {
                         ViewBag.Note = "nie wybrano typu budynku";
                         _logger.LogError("invalid building type");
                     }
+                    
                 }
                 else if (FloorHeightText == "")
                 {
@@ -85,8 +86,7 @@ namespace ArchSite.Controllers
                     _logger.LogError("Invalid input");
                 }
 
-                tasks.Add(GetInputValues(model));
-                await Task.WhenAll(tasks);
+                await GetInputValues(model);
             }
             else
             {
@@ -102,7 +102,7 @@ namespace ArchSite.Controllers
         [HttpPost]
         public async Task<IActionResult> AdjustCalculations(CalculateModel model, IFormCollection collection, string FloorHeightText)
         {
-            List<Task> tasks= new();
+            _logger.LogInformation("adjusting calculation params");
             try
             {
                 double w = Convert.ToDouble(collection["width"].ToString().Replace('.', ','));
@@ -110,17 +110,17 @@ namespace ArchSite.Controllers
                 double d = Convert.ToDouble(collection["depth"].ToString().Replace('.', ','));
                 string radioResult = await CacheGet();
                 model.FloorHeight = Convert.ToDouble(FloorHeightText);
-                tasks.Add(RadioResult(radioResult, model));
-                tasks.Add(CalculateModel(model, true, w, h, d));
+                await RadioResult(radioResult, model);
+                await CalculateModel(model, true, w, h, d);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 ViewBag.Note = "coś poszło nie tak";
+                _logger.LogError("error occured" + e.Message);
             }
             model.Success = true;
 
-            tasks.Add(GetInputValues(model));
-            await Task.WhenAll(tasks);
+            await GetInputValues(model);
             return View("Calculate", model);
         }
 
